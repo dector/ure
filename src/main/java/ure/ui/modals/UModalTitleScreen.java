@@ -4,9 +4,9 @@ import ure.areas.UArea;
 import ure.commands.UCommand;
 import ure.editors.glyphed.GlyphedModal;
 import ure.editors.landed.LandedModal;
+import ure.kotlin.ui.modals.HearModalTitleScreen;
 import ure.math.UColor;
 import ure.sys.GLKey;
-import ure.ui.RexFile;
 import ure.ui.modals.widgets.*;
 
 import java.io.File;
@@ -91,7 +91,7 @@ public class UModalTitleScreen extends UModal implements HearModalGetString, Hea
             commander.showModal(cmodal);
         } else {
             dismiss();
-            ((HearModalTitleScreen) callback).hearModalTitleScreen(option, null);
+            ((HearModalTitleScreen) callback).hearModalTitleScreen(option, "");
         }
     }
 

@@ -508,7 +508,7 @@ public class URendererOGL implements URenderer {
         verts_pos[ip++] = x;
         verts_pos[ip++] = y;
         verts_pos[ip++] = 0;
-        //v2
+        //kotlin
         verts_pos[ip++] = x + w;
         verts_pos[ip++] = y;
         verts_pos[ip++] = 0;
@@ -517,7 +517,7 @@ public class URendererOGL implements URenderer {
         verts_pos[ip++] = y + h;
         verts_pos[ip++] = 0;
         //pos, tri1
-        //v2
+        //kotlin
         verts_pos[ip++] = x + w;
         verts_pos[ip++] = y;
         verts_pos[ip++] = 0;
@@ -543,14 +543,14 @@ public class URendererOGL implements URenderer {
         //v1
         verts_uv[iu++] = u;
         verts_uv[iu++] = v;
-        //v2
+        //kotlin
         verts_uv[iu++] = u + uw;
         verts_uv[iu++] = v;
         //v3
         verts_uv[iu++] = u;
         verts_uv[iu++] = v + vh;
         //UVs, tri 1
-        //v2
+        //kotlin
         verts_uv[iu++] = u + uw;
         verts_uv[iu++] = v;
         //v4

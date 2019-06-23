@@ -1,5 +1,6 @@
 package ure.ui.modals;
 
+import ure.kotlin.ui.modals.HearModal;
 import ure.sys.Entity;
 
 public interface HearModalTarget extends HearModal {
