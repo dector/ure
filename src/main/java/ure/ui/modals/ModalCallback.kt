@@ -6,10 +6,9 @@ package ure.ui.modals
  * This is an abstract interface and can't be implemented directly; every subclass of UModal should have a matching
  * HearModalType interface for callback targets to implement.
  */
-interface HearModal
+interface ModalCallback
 
-interface HearModalTitleScreen : HearModal {
+interface TitleScreenModalCallback : ModalCallback {
 
     fun hearModalTitleScreen(context: String, optional: String)
-
 }

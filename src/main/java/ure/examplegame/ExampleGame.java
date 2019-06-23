@@ -18,7 +18,7 @@ import ure.terrain.UTerrainCzar;
 import ure.things.UThing;
 import ure.things.UThingCzar;
 import ure.ui.UCamera;
-import ure.ui.modals.HearModalTitleScreen;
+import ure.ui.modals.TitleScreenModalCallback;
 import ure.ui.modals.UModalTitleScreen;
 import ure.ui.panels.*;
 
@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.LogManager;
 
-public class ExampleGame implements UREgame, HearModalTitleScreen {
+public class ExampleGame implements UREgame, TitleScreenModalCallback {
 
     static UArea area;
     static UCamera camera;

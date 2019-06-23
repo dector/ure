@@ -4,7 +4,7 @@ import ure.sys.Entity;
 
 import java.util.ArrayList;
 
-public interface HearModalEntityPickMulti extends HearModal {
+public interface HearModalEntityPickMulti extends ModalCallback {
 
     void hearModalEntityPickMulti(String context, ArrayList<Entity> things);
 }

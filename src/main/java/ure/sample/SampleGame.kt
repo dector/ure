@@ -17,7 +17,7 @@ import ure.sys.UREgame
 import ure.terrain.UTerrainCzar
 import ure.things.UThingCzar
 import ure.ui.UCamera
-import ure.ui.modals.HearModalTitleScreen
+import ure.ui.modals.TitleScreenModalCallback
 import ure.ui.modals.UModalTitleScreen
 import ure.ui.panels.*
 import javax.inject.Inject
@@ -29,7 +29,7 @@ import javax.inject.Inject
  * SampleGame().launch()
  * ```
  */
-class SampleGame : UREgame, HearModalTitleScreen {
+class SampleGame : UREgame, TitleScreenModalCallback {
 
     private val log = getLog()
 

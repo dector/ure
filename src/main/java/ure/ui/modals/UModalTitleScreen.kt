@@ -15,7 +15,7 @@ import java.io.File
 
 class UModalTitleScreen(
     cellWidth: Int, cellHeight: Int,
-    callback: HearModalTitleScreen,
+    callback: TitleScreenModalCallback,
     callbackContext: String,
     internal var area: UArea
 ) : UModal(callback, callbackContext), HearModalGetString, HearModalChoices {
@@ -96,7 +96,7 @@ class UModalTitleScreen(
                 UModalChoices(null, arrayOf("LandEd", "VaultEd", "GlyphEd"), this, "edit"))
             else -> {
                 dismiss()
-                (callback as HearModalTitleScreen).hearModalTitleScreen(option, "")
+                (callback as TitleScreenModalCallback).hearModalTitleScreen(option, "")
             }
         }
     }
@@ -117,7 +117,7 @@ class UModalTitleScreen(
     override fun hearModalGetString(context: String, input: String) {
         if (context == "name-new-world") {
             escape()
-            (callback as HearModalTitleScreen).hearModalTitleScreen("New World", input)
+            (callback as TitleScreenModalCallback).hearModalTitleScreen("New World", input)
         }
     }
 

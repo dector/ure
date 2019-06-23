@@ -52,7 +52,7 @@ public class UModal extends View implements UAnimator {
     @Inject
     EventBus bus;
 
-    public HearModal callback;
+    public ModalCallback callback;
     public String callbackContext;
     public int cellw = 0;
     public int cellh = 0;
@@ -74,7 +74,7 @@ public class UModal extends View implements UAnimator {
     Widget focusWidget;
     ArrayList<Widget> widgetsFocusable;
 
-    public UModal(HearModal _callback, String _callbackContext) {
+    public UModal(ModalCallback _callback, String _callbackContext) {
         Injector.getAppComponent().inject(this);
         bus.register(this);
         callback = _callback;

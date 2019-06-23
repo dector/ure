@@ -11,7 +11,7 @@ public class UModalTabs extends UModal {
     ArrayList<String> tabNames;
     String tab;
 
-    public UModalTabs(HearModal _callback, String _callbackContext) {
+    public UModalTabs(ModalCallback _callback, String _callbackContext) {
         super(_callback, _callbackContext);
         tabWidgetSets = new HashMap<>();
         tabNames = new ArrayList<>();

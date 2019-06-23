@@ -34,7 +34,7 @@ public class UModalChoices extends UModal {
             pickSelection(choicesWidget.choice());
     }
 
-    public void pickSelection(String selection) {
+    private void pickSelection(String selection) {
         dismiss();
         ((HearModalChoices)callback).hearModalChoices(callbackContext, selection);
     }
