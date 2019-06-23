@@ -25,6 +25,7 @@ shift+kp_6,LATCH_E
 shift+right,LATCH_E
 shift+q,QUIT
 space,PASS
+enter,PASS
 e,INTERACT
 i,INVENTORY
 g,GETMULTI
