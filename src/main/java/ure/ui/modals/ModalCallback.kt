@@ -7,9 +7,3 @@ package ure.ui.modals
  * HearModalType interface for callback targets to implement.
  */
 interface ModalCallback
-
-sealed class TitleScreenModalAction {
-    data class NewWorld(val playerName: String) : TitleScreenModalAction()
-    data class ContinueGame(val playerName: String) : TitleScreenModalAction()
-    object Quit : TitleScreenModalAction()
-}
