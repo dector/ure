@@ -22,6 +22,7 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+
 }
 
 
@@ -70,7 +71,7 @@ dependencies {
 
     // Dagger
     compile 'com.google.dagger:dagger:2.16'
-    apt 'com.google.dagger:dagger-compiler:2.16'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
 
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
