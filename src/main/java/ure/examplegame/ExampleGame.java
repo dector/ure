@@ -7,6 +7,8 @@ import ure.actors.UPlayer;
 import ure.areas.UArea;
 import ure.areas.UCartographer;
 import ure.areas.UCell;
+import ure.kotlin.sys.Injector;
+import ure.kotlin.ui.modals.HearModalTitleScreen;
 import ure.math.UColor;
 import ure.render.URenderer;
 import ure.sys.UCommander;
@@ -17,7 +19,6 @@ import ure.terrain.UTerrainCzar;
 import ure.things.UThing;
 import ure.things.UThingCzar;
 import ure.ui.UCamera;
-import ure.ui.modals.HearModalTitleScreen;
 import ure.ui.modals.UModalTitleScreen;
 import ure.ui.panels.*;
 
@@ -72,16 +73,16 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
 
         window = new UREWindow();
         camera = new UCamera(0, 0, 1200, 800);
-        camera.moveTo(area, 40,20);
+        camera.moveTo(area, 40, 20);
         window.setCamera(camera);
 
         UColor borderColor = UColor.DARKGRAY;
 
         statusPanel = new StatusPanel(10, 10, config.getTextColor(), null, borderColor);
 
-        statusPanel.addText("name", " ",0,0);
-        statusPanel.addText("race", "Owl",0,1);
-        statusPanel.addText("class", "Ornithologist",0,2);
+        statusPanel.addText("name", " ", 0, 0);
+        statusPanel.addText("race", "Owl", 0, 1);
+        statusPanel.addText("class", "Ornithologist", 0, 2);
         statusPanel.addText("turn", "T 1", 0, 5);
         statusPanel.addText("time", "", 0, 6);
         statusPanel.addText("location", "?", 0, 8);
@@ -89,7 +90,7 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
         statusPanel.setLayout(UPanel.XPOS_LEFT, UPanel.YPOS_BOTTOM, 8, 0.15f, 12, 10, 0f, 10);
         window.addPanel(statusPanel);
 
-        actorPanel = new ActorPanel(10,10,config.getTextColor(), null, borderColor);
+        actorPanel = new ActorPanel(10, 10, config.getTextColor(), null, borderColor);
         actorPanel.setLayout(UPanel.XPOS_LEFT, UPanel.YPOS_FIT, 8, 0.15f, 12, 1, 1f, 9999);
         window.addPanel(actorPanel);
 
@@ -98,7 +99,7 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
         window.addPanel(lensPanel);
 
 
-        scrollPanel = new ScrollPanel(12, 12, config.getTextColor(), null, new UColor(0.3f,0.3f,0.3f));
+        scrollPanel = new ScrollPanel(12, 12, config.getTextColor(), null, new UColor(0.3f, 0.3f, 0.3f));
         scrollPanel.setLayout(UPanel.XPOS_FIT, UPanel.YPOS_BOTTOM, 0, 1f, 9999, 2, 0.18f, 11);
         scrollPanel.addLineFade(new UColor(1.0f, 1.0f, 1.0f));
         scrollPanel.addLineFade(new UColor(0.8f, 0.8f, 0.8f));
@@ -123,7 +124,7 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
         commander.registerCamera(camera);
     }
 
-    public void startUp()  {
+    public void startUp() {
 
         cartographer = new ExampleCartographer();
         makeWindow();
@@ -170,7 +171,7 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
             UCell startcell = area.randomOpenCell(player);
             player.setSaveLocation(area, startcell.x, startcell.y);
         } else {
-             log.info("Loading existing player into " + player.getSaveAreaLabel());
+            log.info("Loading existing player into " + player.getSaveAreaLabel());
             cartographer.startLoader();
             area = cartographer.getArea(player.getSaveAreaLabel());
         }
@@ -181,7 +182,7 @@ public class ExampleGame implements UREgame, HearModalTitleScreen {
 
     public UPlayer makeNewPlayer(String playername) {
         log.debug("Creating a brand new @Player");
-        player = new UPlayer("Player",new UColor(0.1f, 0.1f, 0.4f), 2, 3);
+        player = new UPlayer("Player", new UColor(0.1f, 0.1f, 0.4f), 2, 3);
         player.setName(playername);
         player.setID(commander.generateNewID(player));
 

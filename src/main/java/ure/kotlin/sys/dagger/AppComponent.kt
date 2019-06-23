@@ -9,8 +9,10 @@ import ure.areas.UArea
 import ure.areas.UCartographer
 import ure.areas.UCell
 import ure.areas.URegion
+import ure.areas.gen.Roomgroup
 import ure.areas.gen.Shape
 import ure.areas.gen.ULandscaper
+import ure.areas.gen.deco.Deco
 import ure.areas.gen.shapers.Shaper
 import ure.commands.UCommand
 import ure.kotlin.example.ExampleGame
@@ -40,6 +42,7 @@ import ure.ui.particles.UParticle
 import ure.ui.sounds.Sound
 import ure.ui.sounds.USpeaker
 import javax.inject.Singleton
+import ure.examplegame.ExampleGame as JavaExampleGame
 
 /**
  * The register for classes that need dependency injection.
@@ -56,12 +59,15 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AppModule::class])
 interface AppComponent {
+    fun inject(deco: Deco)
+    fun inject(deco: Roomgroup)
     fun inject(czar: UTerrainCzar)
     fun inject(czar: UThingCzar)
     fun inject(czar: UActorCzar)
     fun inject(czar: UIconCzar)
     fun inject(cartographer: UCartographer)
     fun inject(cmdr: UCommander)
+    fun inject(game: JavaExampleGame)
     fun inject(game: ExampleGame)
     fun inject(mygame: MyGame)
     fun inject(act: UAction)

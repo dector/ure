@@ -2,9 +2,9 @@ package ure.areas.gen;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.math.URandom;
-import ure.sys.Injector;
 import ure.terrain.UTerrain;
 
 import javax.inject.Inject;
@@ -70,9 +70,9 @@ public class Roomgroup {
     boolean matchFloorType(Room r, UArea area) {
         if (floorType == null) return true;
         if (floorType.equals("null")) return true;
-        for (int x=0;x<r.width;x++) {
-            for (int y=0;y<r.height;y++) {
-                UTerrain t = area.terrainAt(x+r.x,y+r.y);
+        for (int x = 0; x < r.width; x++) {
+            for (int y = 0; y < r.height; y++) {
+                UTerrain t = area.terrainAt(x + r.x, y + r.y);
                 if (t.name().equals(floorType))
                     return true;
             }
@@ -144,6 +144,11 @@ public class Roomgroup {
         this.rooms = rooms;
     }
 
-    public UColor getEditorColor() { return editorColor; }
-    public void setEditorColor(UColor c) { editorColor = c; }
+    public UColor getEditorColor() {
+        return editorColor;
+    }
+
+    public void setEditorColor(UColor c) {
+        editorColor = c;
+    }
 }

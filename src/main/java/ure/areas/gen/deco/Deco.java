@@ -3,8 +3,8 @@ package ure.areas.gen.deco;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
 import ure.areas.gen.Room;
+import ure.kotlin.sys.Injector;
 import ure.math.URandom;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 
 import javax.inject.Inject;
