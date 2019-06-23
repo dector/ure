@@ -22,6 +22,13 @@ import ure.ui.modals.UModalTitleScreen
 import ure.ui.panels.*
 import javax.inject.Inject
 
+/**
+ * Sample game. Usage:
+ *
+ * ```
+ * ExampleGame().launch()
+ * ```
+ */
 class ExampleGame : UREgame, HearModalTitleScreen {
 
     private val log = getLog()
