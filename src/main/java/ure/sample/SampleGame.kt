@@ -17,7 +17,7 @@ import ure.sys.UREgame
 import ure.terrain.UTerrainCzar
 import ure.things.UThingCzar
 import ure.ui.UCamera
-import ure.ui.modals.TitleScreenModalCallback
+import ure.ui.modals.TitleScreenModalAction
 import ure.ui.modals.UModalTitleScreen
 import ure.ui.panels.*
 import javax.inject.Inject
@@ -29,7 +29,7 @@ import javax.inject.Inject
  * SampleGame().launch()
  * ```
  */
-class SampleGame : UREgame, TitleScreenModalCallback {
+class SampleGame : UREgame {
 
     private val log = getLog()
 
@@ -157,20 +157,18 @@ class SampleGame : UREgame, TitleScreenModalCallback {
         camera.moveTo(area, 50, 50)
 
         commander.config.isVisibilityEnable = false
-        commander.showModal(UModalTitleScreen(22, 22, this, "start", area))
-    }
-
-    override fun hearModalTitleScreen(context: String, optional: String) {
-        if (context == "Credits" || context == "Quit") {
-            commander.quitGame()
-        } else {
-            if (context == "New World") {
-                cartographer.wipeWorld()
-                continueGame(optional)
-            } else {
-                continueGame(optional)
+        commander.showModal(UModalTitleScreen(22, 22, "start", area) { action ->
+            when (action) {
+                is TitleScreenModalAction.NewWorld -> {
+                    cartographer.wipeWorld()
+                    continueGame(action.playerName)
+                }
+                is TitleScreenModalAction.ContinueGame ->
+                    continueGame(action.playerName)
+                TitleScreenModalAction.Quit ->
+                    commander.quitGame()
             }
-        }
+        })
     }
 
     private fun continueGame(playerName: String) {

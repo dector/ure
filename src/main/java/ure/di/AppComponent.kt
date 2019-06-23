@@ -42,7 +42,6 @@ import ure.ui.particles.UParticle
 import ure.ui.sounds.Sound
 import ure.ui.sounds.USpeaker
 import javax.inject.Singleton
-import ure.examplegame.ExampleGame as JavaExampleGame
 
 /**
  * The register for classes that need dependency injection.
@@ -67,7 +66,6 @@ interface AppComponent {
     fun inject(czar: UIconCzar)
     fun inject(cartographer: UCartographer)
     fun inject(cmdr: UCommander)
-    fun inject(game: JavaExampleGame)
     fun inject(game: SampleGame)
     fun inject(mygame: MyGame)
     fun inject(act: UAction)
