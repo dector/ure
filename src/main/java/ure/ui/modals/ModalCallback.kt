@@ -1,7 +1,5 @@
 package ure.ui.modals
 
-import ure.ui.modals.TitleScreenModalAction.*
-
 /**
  * This interface describes an object which wants to receive callbacks from a modal.
  *
@@ -10,28 +8,8 @@ import ure.ui.modals.TitleScreenModalAction.*
  */
 interface ModalCallback
 
-@Deprecated("")
-interface TitleScreenModalCallback : ModalCallback {
-
-    fun hearModalTitleScreen(context: String, optional: String)
-}
-
 sealed class TitleScreenModalAction {
     data class NewWorld(val playerName: String) : TitleScreenModalAction()
     data class ContinueGame(val playerName: String) : TitleScreenModalAction()
     object Quit : TitleScreenModalAction()
-}
-
-@Deprecated("Legacy wrapper")
-fun ((TitleScreenModalAction) -> Unit).wrapper() = object : TitleScreenModalCallback {
-    override fun hearModalTitleScreen(context: String, optional: String) {
-        when (context) {
-            "NewWorld" ->
-                this@wrapper(NewWorld(optional))
-            "Continue" ->
-                this@wrapper(ContinueGame(optional))
-            "Quit" ->
-                this@wrapper(Quit)
-        }
-    }
 }

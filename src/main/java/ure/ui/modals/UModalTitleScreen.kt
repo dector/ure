@@ -4,6 +4,7 @@ import ure.areas.UArea
 import ure.commands.UCommand
 import ure.editors.glyphed.GlyphedModal
 import ure.editors.landed.LandedModal
+import ure.log.getLog
 import ure.math.UColor
 import ure.sys.GLKey
 import ure.ui.modals.widgets.Widget
@@ -18,13 +19,15 @@ class UModalTitleScreen(
     callbackContext: String,
     internal var area: UArea,
     private val callback: (TitleScreenModalAction) -> Unit
-) : UModal(callback.wrapper(), callbackContext), HearModalGetString, HearModalChoices {
+) : UModal(null, callbackContext), HearModalGetString, HearModalChoices {
 
     private var logoWidget: WidgetRexImage
     private var titleWidget: WidgetText
     private var menuWidget: WidgetListVert
 
     private var fakeTickCount: Int = 0
+
+    private val log = getLog()
 
     init {
         setDimensions(cellWidth, cellHeight)
@@ -94,10 +97,16 @@ class UModalTitleScreen(
             }
             "Edit" -> commander.showModal(
                 UModalChoices(null, arrayOf("LandEd", "VaultEd", "GlyphEd"), this, "edit"))
-            else -> {
+            "Continue" -> {
                 dismiss()
-                (super.callback as TitleScreenModalCallback).hearModalTitleScreen(option, "")
+                callback(TitleScreenModalAction.ContinueGame(""))
             }
+            "Quit" -> {
+                dismiss()
+                callback(TitleScreenModalAction.Quit)
+            }
+            else ->
+                log.error("Title screen selection '$option' not recognized")
         }
     }
 
@@ -117,7 +126,7 @@ class UModalTitleScreen(
     override fun hearModalGetString(context: String, input: String) {
         if (context == "name-new-world") {
             escape()
-            (super.callback as TitleScreenModalCallback).hearModalTitleScreen("New World", input)
+            callback(TitleScreenModalAction.NewWorld(playerName = input))
         }
     }
 

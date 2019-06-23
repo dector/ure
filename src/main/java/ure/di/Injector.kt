@@ -1,6 +1,5 @@
 package ure.di
 
-import ure.kotlin.sys.dagger.DaggerAppComponent
 import ure.sys.dagger.AppModule
 
 /**
