@@ -15,10 +15,10 @@ import ure.areas.gen.ULandscaper
 import ure.areas.gen.deco.Deco
 import ure.areas.gen.shapers.Shaper
 import ure.commands.UCommand
-import ure.kotlin.example.ExampleGame
 import ure.math.Dimap
 import ure.mygame.MyGame
 import ure.render.URendererOGL
+import ure.sample.SampleGame
 import ure.sys.ResourceManager
 import ure.sys.UCommander
 import ure.sys.UREWindow
@@ -68,7 +68,7 @@ interface AppComponent {
     fun inject(cartographer: UCartographer)
     fun inject(cmdr: UCommander)
     fun inject(game: JavaExampleGame)
-    fun inject(game: ExampleGame)
+    fun inject(game: SampleGame)
     fun inject(mygame: MyGame)
     fun inject(act: UAction)
     fun inject(thingi: UThing)

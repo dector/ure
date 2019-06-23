@@ -170,7 +170,7 @@ public class URendererOGL implements URenderer {
         screenWidth = config.getScreenWidth();
         screenHeight =config.getScreenHeight();
 
-        window = glfwCreateWindow(screenWidth, screenHeight, "UREasonable example!", NULL, NULL);
+        window = glfwCreateWindow(screenWidth, screenHeight, "UREasonable sample!", NULL, NULL);
         if ( window == NULL )
             throw new RuntimeException("Failed to create the GLFW window");
 

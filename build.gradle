@@ -20,7 +20,7 @@ repositories {
     jcenter()
 }
 
-mainClassName = 'ure.kotlin.example.ExampleMainKt'
+mainClassName = 'ure.sample.SampleGameKt'
 
 if (org.gradle.internal.os.OperatingSystem.current().isMacOsX()) {
     applicationDefaultJvmArgs = ["-XstartOnFirstThread"]

@@ -1,4 +1,4 @@
-package ure.kotlin.example
+package ure.sample
 
 import ure.actors.UActorCzar
 import ure.actors.UPlayer
@@ -26,17 +26,17 @@ import javax.inject.Inject
  * Sample game. Usage:
  *
  * ```
- * ExampleGame().launch()
+ * SampleGame().launch()
  * ```
  */
-class ExampleGame : UREgame, HearModalTitleScreen {
+class SampleGame : UREgame, HearModalTitleScreen {
 
     private val log = getLog()
 
     init {
         // Set up logging before doing anything else, including dependency injection.  That way we'll
         // get proper logging for @Provides methods.
-        configureLog(ExampleGame::class)
+        configureLog(SampleGame::class)
     }
 
     @Inject
@@ -245,5 +245,5 @@ class ExampleGame : UREgame, HearModalTitleScreen {
 }
 
 fun main() {
-    ExampleGame().launch()
+    SampleGame().launch()
 }
