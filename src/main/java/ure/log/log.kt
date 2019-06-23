@@ -1,4 +1,4 @@
-package ure.kotlin.log
+package ure.log
 
 import org.apache.commons.logging.Log
 import org.apache.commons.logging.LogFactory

@@ -8,7 +8,7 @@ import ure.actors.UActorCzar;
 import ure.areas.UArea;
 import ure.areas.UCell;
 import ure.areas.URegion;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.SimplexNoise;
 import ure.math.UColor;
 import ure.math.URandom;

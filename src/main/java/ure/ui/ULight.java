@@ -2,7 +2,7 @@ package ure.ui;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.math.UPath;
 import ure.math.URandom;

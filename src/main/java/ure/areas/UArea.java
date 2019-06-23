@@ -8,7 +8,7 @@ import org.apache.commons.logging.LogFactory;
 import ure.actors.UActor;
 import ure.actors.UPlayer;
 import ure.actors.actions.UAction;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.Dimap;
 import ure.math.UColor;
 import ure.math.URandom;
@@ -26,15 +26,10 @@ import ure.ui.modals.UModalTooltip;
 import ure.ui.particles.UParticle;
 
 import javax.inject.Inject;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.stream.Stream;
 
 /**
  *

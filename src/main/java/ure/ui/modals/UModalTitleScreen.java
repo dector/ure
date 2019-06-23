@@ -4,10 +4,12 @@ import ure.areas.UArea;
 import ure.commands.UCommand;
 import ure.editors.glyphed.GlyphedModal;
 import ure.editors.landed.LandedModal;
-import ure.kotlin.ui.modals.HearModalTitleScreen;
 import ure.math.UColor;
 import ure.sys.GLKey;
-import ure.ui.modals.widgets.*;
+import ure.ui.modals.widgets.Widget;
+import ure.ui.modals.widgets.WidgetListVert;
+import ure.ui.modals.widgets.WidgetRexImage;
+import ure.ui.modals.widgets.WidgetText;
 
 import java.io.File;
 

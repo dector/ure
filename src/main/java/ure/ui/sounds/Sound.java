@@ -1,7 +1,7 @@
 package ure.ui.sounds;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.URandom;
 
 import javax.inject.Inject;

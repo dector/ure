@@ -6,7 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import ure.actors.UActor;
 import ure.areas.UArea;
 import ure.areas.UCell;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.*;
 import ure.render.URenderer;
 import ure.sys.UAnimator;

@@ -1,7 +1,7 @@
 package ure.ui.panels;
 
 import com.google.common.eventbus.EventBus;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.sys.UCommander;
 import ure.sys.UConfig;

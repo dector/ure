@@ -1,6 +1,6 @@
 package ure.sys;
 
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 
 import javax.inject.Inject;
 import java.io.*;

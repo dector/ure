@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.actors.UActor;
 import ure.actors.UPlayer;
 import ure.actors.actions.UAction;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.sys.UCommander;
 import ure.terrain.Stairs;
 import ure.terrain.UTerrain;

@@ -1,6 +1,5 @@
 package ure.ui.modals;
 
-import ure.kotlin.ui.modals.HearModal;
 import ure.ui.modals.widgets.Widget;
 
 import java.util.ArrayList;

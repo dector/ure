@@ -8,7 +8,7 @@ import ure.actors.UActor;
 import ure.actors.UPlayer;
 import ure.areas.UArea;
 import ure.areas.UCell;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.sys.events.PlayerChangedAreaEvent;
 import ure.ui.modals.HearModalChoices;
 import ure.ui.modals.UModalChoices;

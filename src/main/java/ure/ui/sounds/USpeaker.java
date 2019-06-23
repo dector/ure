@@ -12,7 +12,7 @@ import org.lwjgl.openal.ALCCapabilities;
 import org.lwjgl.openal.ALCapabilities;
 import ure.actors.UPlayer;
 import ure.areas.UArea;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UPath;
 import ure.sys.UAnimator;
 import ure.sys.UCommander;

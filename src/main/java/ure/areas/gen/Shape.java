@@ -2,7 +2,7 @@ package ure.areas.gen;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.URandom;
 import ure.things.UThing;
 import ure.things.UThingCzar;
@@ -10,7 +10,6 @@ import ure.things.UThingCzar;
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * A Shapemask is a 1-bit 2D array of cells.  Landscaper methods can generate these to use for stamping terrain into areas.

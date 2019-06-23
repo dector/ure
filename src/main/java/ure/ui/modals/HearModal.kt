@@ -1,4 +1,4 @@
-package ure.kotlin.ui.modals
+package ure.ui.modals
 
 /**
  * This interface describes an object which wants to receive callbacks from a modal.

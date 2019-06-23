@@ -5,7 +5,7 @@ import ure.actors.UActor;
 import ure.actors.UNPC;
 import ure.actors.actions.ActionWalk;
 import ure.actors.actions.UAction;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.math.UPath;
 import ure.math.URandom;

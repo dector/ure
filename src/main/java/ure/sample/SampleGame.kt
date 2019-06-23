@@ -4,11 +4,10 @@ import ure.actors.UActorCzar
 import ure.actors.UPlayer
 import ure.areas.UArea
 import ure.areas.UCartographer
+import ure.di.Injector
 import ure.examplegame.ExampleCartographer
-import ure.kotlin.log.configureLog
-import ure.kotlin.log.getLog
-import ure.kotlin.sys.Injector
-import ure.kotlin.ui.modals.HearModalTitleScreen
+import ure.log.configureLog
+import ure.log.getLog
 import ure.math.UColor
 import ure.render.URenderer
 import ure.sys.UCommander
@@ -18,6 +17,7 @@ import ure.sys.UREgame
 import ure.terrain.UTerrainCzar
 import ure.things.UThingCzar
 import ure.ui.UCamera
+import ure.ui.modals.HearModalTitleScreen
 import ure.ui.modals.UModalTitleScreen
 import ure.ui.panels.*
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package ure.kotlin.sys.dagger
+package ure.di
 
 import dagger.Component
 import ure.actors.SpawnActor

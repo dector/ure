@@ -7,8 +7,7 @@ import ure.actors.UPlayer;
 import ure.areas.UArea;
 import ure.areas.UCartographer;
 import ure.areas.UCell;
-import ure.kotlin.sys.Injector;
-import ure.kotlin.ui.modals.HearModalTitleScreen;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.render.URenderer;
 import ure.sys.UCommander;
@@ -19,6 +18,7 @@ import ure.terrain.UTerrainCzar;
 import ure.things.UThing;
 import ure.things.UThingCzar;
 import ure.ui.UCamera;
+import ure.ui.modals.HearModalTitleScreen;
 import ure.ui.modals.UModalTitleScreen;
 import ure.ui.panels.*;
 

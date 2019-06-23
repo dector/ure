@@ -5,7 +5,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import ure.actors.UActorCzar;
 import ure.areas.gen.ULandscaper;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.URandom;
 import ure.sys.UCommander;
 import ure.terrain.UTerrainCzar;

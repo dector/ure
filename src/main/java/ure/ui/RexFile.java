@@ -1,6 +1,6 @@
 package ure.ui;
 
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.render.URenderer;
 import ure.sys.UConfig;

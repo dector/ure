@@ -1,7 +1,7 @@
 package ure.things;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.URandom;
 import ure.sys.UCommander;
 

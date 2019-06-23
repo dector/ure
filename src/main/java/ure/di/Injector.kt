@@ -1,6 +1,5 @@
-package ure.kotlin.sys
+package ure.di
 
-import ure.kotlin.sys.dagger.AppComponent
 import ure.kotlin.sys.dagger.DaggerAppComponent
 import ure.sys.dagger.AppModule
 

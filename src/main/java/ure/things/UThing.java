@@ -8,7 +8,7 @@ import ure.actors.UPlayer;
 import ure.actors.actions.*;
 import ure.areas.UArea;
 import ure.areas.UCell;
-import ure.kotlin.sys.Injector;
+import ure.di.Injector;
 import ure.math.UColor;
 import ure.math.URandom;
 import ure.sys.Entity;
