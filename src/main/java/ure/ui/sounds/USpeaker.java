@@ -3,17 +3,23 @@ package ure.ui.sounds;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 import org.apache.commons.io.IOUtils;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.openal.AL;
+import org.lwjgl.openal.ALC;
+import org.lwjgl.openal.ALCCapabilities;
+import org.lwjgl.openal.ALCapabilities;
 import ure.actors.UPlayer;
 import ure.areas.UArea;
+import ure.kotlin.sys.Injector;
 import ure.math.UPath;
-import ure.sys.UConfig;
-import ure.sys.events.PlayerChangedAreaEvent;
-import ure.sys.Injector;
 import ure.sys.UAnimator;
 import ure.sys.UCommander;
+import ure.sys.UConfig;
+import ure.sys.events.PlayerChangedAreaEvent;
+import ure.sys.events.TimeTickEvent;
+import ure.terrain.UTerrain;
 
 import javax.inject.Inject;
 import javax.sound.sampled.AudioFormat;
@@ -29,21 +35,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.lwjgl.BufferUtils;
-import org.lwjgl.openal.*;
-import ure.sys.events.TimeTickEvent;
-import ure.terrain.UTerrain;
-
 import static org.lwjgl.BufferUtils.createByteBuffer;
 import static org.lwjgl.openal.AL10.*;
-import static org.lwjgl.openal.AL11.alSource3i;
 import static org.lwjgl.openal.ALC10.*;
 import static org.lwjgl.openal.EXTEfx.*;
 import static org.lwjgl.openal.EXTThreadLocalContext.alcSetThreadContext;
-import static org.lwjgl.stb.STBVorbis.*;
-import static org.lwjgl.system.MemoryStack.stackMallocInt;
-import static org.lwjgl.system.MemoryStack.stackPop;
-import static org.lwjgl.system.MemoryStack.stackPush;
+import static org.lwjgl.stb.STBVorbis.stb_vorbis_decode_memory;
+import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.libc.LibCStdlib.free;
 

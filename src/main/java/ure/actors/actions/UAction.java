@@ -1,9 +1,9 @@
 package ure.actors.actions;
 
-import ure.math.URandom;
-import ure.sys.Injector;
-import ure.sys.UCommander;
 import ure.actors.UActor;
+import ure.kotlin.sys.Injector;
+import ure.math.URandom;
+import ure.sys.UCommander;
 import ure.ui.sounds.Sound;
 import ure.ui.sounds.USpeaker;
 

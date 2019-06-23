@@ -4,15 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.eventbus.EventBus;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ure.actors.UActor;
 import ure.actors.UPlayer;
 import ure.areas.UArea;
 import ure.areas.UCell;
-import ure.actors.UActor;
+import ure.kotlin.sys.Injector;
 import ure.sys.events.PlayerChangedAreaEvent;
-import ure.sys.Injector;
 import ure.ui.modals.HearModalChoices;
 import ure.ui.modals.UModalChoices;
-import ure.ui.modals.UModalFade;
 
 import javax.inject.Inject;
 import java.util.ArrayList;

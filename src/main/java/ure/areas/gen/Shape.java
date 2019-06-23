@@ -2,8 +2,8 @@ package ure.areas.gen;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
+import ure.kotlin.sys.Injector;
 import ure.math.URandom;
-import ure.sys.Injector;
 import ure.things.UThing;
 import ure.things.UThingCzar;
 

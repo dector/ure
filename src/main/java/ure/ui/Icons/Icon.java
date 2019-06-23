@@ -2,17 +2,16 @@ package ure.ui.Icons;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.actors.UActor;
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.math.URandom;
 import ure.render.URenderer;
 import ure.sys.Entity;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 import ure.sys.UConfig;
 import ure.things.UThing;
 
 import javax.inject.Inject;
-import java.util.Random;
 
 /**
  * A glyph plus colors defining a static entity representation for UI purposes.

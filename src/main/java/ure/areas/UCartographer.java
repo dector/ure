@@ -9,13 +9,13 @@ import com.google.common.eventbus.Subscribe;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import ure.actors.UActorCzar;
 import ure.areas.gen.UVaultSet;
+import ure.kotlin.sys.Injector;
 import ure.math.URandom;
 import ure.sys.ResourceManager;
-import ure.sys.events.PlayerChangedAreaEvent;
-import ure.sys.Injector;
 import ure.sys.UCommander;
-import ure.actors.UActorCzar;
+import ure.sys.events.PlayerChangedAreaEvent;
 import ure.terrain.Stairs;
 import ure.terrain.UTerrainCzar;
 import ure.things.UThingCzar;
@@ -32,16 +32,15 @@ import java.util.zip.GZIPOutputStream;
 /**
  * UCartographer implements a central authority for determining where inter-area exits go.  It defines
  * the overall map of your game.
- *
+ * <p>
  * It does this by working closely with the Stairs terrain.  When a Stairs is activated, its label,
  * a simple String, is given to your cartographer.getArea() to receive a new Area to move the player
  * into.
- *
+ * <p>
  * By convention this label is of the format 'maptype a[,b,c..]' where a,b,c are arbitrary parameters
  * used by the cartographer to route.  The simplest system is to simply attach one number representing
  * a depth, and generate harder levels for higher depths.  The GetLabelName() / GetLabelData() methods
  * are provided to facilitate this convention.
- *
  */
 
 public class UCartographer implements Runnable {
@@ -65,13 +64,13 @@ public class UCartographer implements Runnable {
 
     protected ArrayList<UArea> activeAreas = new ArrayList<>();
     protected ArrayList<UArea> closeableAreas = new ArrayList<>();
-    protected HashMap<String,URegion> regions = new HashMap<>();
+    protected HashMap<String, URegion> regions = new HashMap<>();
     protected String startArea;
 
     LinkedBlockingQueue<String> loadQueue = new LinkedBlockingQueue<>();
     LinkedBlockingQueue<UArea> saveQueue = new LinkedBlockingQueue<>();
     String loadingArea;
-    UArea  savingArea;
+    UArea savingArea;
     Thread loaderThread;
 
     public boolean waitingForLoad;
@@ -107,6 +106,7 @@ public class UCartographer implements Runnable {
         regions = new HashMap<>();
         setupRegions();
     }
+
     /**
      * Load all regions that have been persisted to disk.
      */
@@ -128,6 +128,7 @@ public class UCartographer implements Runnable {
 
     /**
      * Load a single region from disk.
+     *
      * @param file
      * @return the region
      */
@@ -137,8 +138,7 @@ public class UCartographer implements Runnable {
                 GZIPInputStream gzip = new GZIPInputStream(stream)
         ) {
             return objectMapper.readValue(gzip, URegion.class);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException("Couldn't load region at " + file.getPath(), e);
         }
     }
@@ -152,6 +152,7 @@ public class UCartographer implements Runnable {
             loaderThread.start();
         }
     }
+
     /**
      * Fetch the UArea corresponding to a label.  This looks for a persisted level, or
      * creates a new one if needed.  You probably shouldn't override this.
@@ -187,13 +188,17 @@ public class UCartographer implements Runnable {
      * By default, if we have regions, pick the first region and return its first level.
      */
 
-    public String getStartArea() { return startArea; }
+    public String getStartArea() {
+        return startArea;
+    }
+
     public UArea makeStartArea() {
         return getArea(startArea);
     }
 
     /**
      * Get the name of the current world.  By default this is used to name the savestate file.
+     *
      * @return
      */
     public String worldName() {
@@ -222,15 +227,14 @@ public class UCartographer implements Runnable {
             String path = commander.savePath();
             File file = new File(path + label + ".area");
             try (
-                FileInputStream stream = new FileInputStream(file);
-                GZIPInputStream gzip = new GZIPInputStream(stream)
+                    FileInputStream stream = new FileInputStream(file);
+                    GZIPInputStream gzip = new GZIPInputStream(stream)
             ) {
                 UArea area = objectMapper.readValue(gzip, UArea.class);
                 area.reconnect();
                 area.setLinks();
                 return area;
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 if (e instanceof FileNotFoundException) {
                     log.debug("no save found for " + label);
                 } else {
@@ -245,6 +249,7 @@ public class UCartographer implements Runnable {
     /**
      * Persist an object to disk.  This will most likely be an area or region, but in theory you could
      * write anything that serializes properly.
+     *
      * @param object
      * @param filename
      */
@@ -273,28 +278,27 @@ public class UCartographer implements Runnable {
 
     /**
      * Create a UArea specified by the given label in whatever format we define.
-     *
+     * <p>
      * By default, find a region with this label's id and ask it for the area.
-     *
      */
-     public UArea makeArea(String label, String labelname, int labeldata) {
-         log.info("make area for " + labelname + " (" + Integer.toString(labeldata) + ")");
-         if (regions.containsKey(labelname)) {
-             UArea area = regions.get(labelname).makeArea(labeldata, label);
-             area.setLabel(label);
-             area.setLinks();
-             return area;
-         }
-         return null;
+    public UArea makeArea(String label, String labelname, int labeldata) {
+        log.info("make area for " + labelname + " (" + Integer.toString(labeldata) + ")");
+        if (regions.containsKey(labelname)) {
+            UArea area = regions.get(labelname).makeArea(labeldata, label);
+            area.setLabel(label);
+            area.setLinks();
+            return area;
+        }
+        return null;
     }
 
     /**
      * Add a region to the world.  This lets the carto spawn areas for that region's label id.
      */
     public void addRegion(URegion region) {
-         log.info("adding region " + region.getId());
-         persist(region, region.getId() + ".region");
-         regions.put(region.getId(), region);
+        log.info("adding region " + region.getId());
+        persist(region, region.getId() + ".region");
+        regions.put(region.getId(), region);
     }
 
     /**
@@ -339,16 +343,17 @@ public class UCartographer implements Runnable {
 
     /**
      * Extract the 'region' part of the label string, assuming the conventional format (anything before a space).
-     *
+     * <p>
      * For 'dungeon 47', this would return 'dungeon'.
      * For 'start', this would return 'start'.
+     *
      * @param label
      * @return
      */
     public String GetLabelName(String label) {
         int i = label.indexOf(" ");
         if (i < 0) return label;
-        return label.substring(0,i);
+        return label.substring(0, i);
     }
 
     /**
@@ -361,10 +366,10 @@ public class UCartographer implements Runnable {
         int di = 0;
         int data = 0;
         int i = label.indexOf(" ");
-        if (i >= label.length()-1) return data;
+        if (i >= label.length() - 1) return data;
         if (i < 1) return data;
         int lc = i;
-        return Integer.parseInt(label.substring(lc+1));
+        return Integer.parseInt(label.substring(lc + 1));
     }
 
     /**
@@ -403,10 +408,9 @@ public class UCartographer implements Runnable {
 
     /**
      * Generate a title screen area.  This is a real area, but it's just for show. :)
-     *
      */
     public UArea getTitleArea() {
-        UArea area = new UArea(100,100,"floor");
+        UArea area = new UArea(100, 100, "floor");
         area.label = "TITLE";
         addActiveArea(area);
         commander.config.addDefaultSunCycle(area);
@@ -417,9 +421,11 @@ public class UCartographer implements Runnable {
         if (!activeAreas.contains(area))
             activeAreas.add(area);
     }
+
     public synchronized void removeActiveArea(UArea area) {
         activeAreas.remove(area);
     }
+
     public synchronized UArea getActiveAreaAt(int i) {
         return activeAreas.get(i);
     }
@@ -428,14 +434,17 @@ public class UCartographer implements Runnable {
         if (!closeableAreas.contains(area))
             closeableAreas.add(area);
     }
+
     public synchronized void removeCloseableArea(UArea area) {
         closeableAreas.remove(area);
     }
+
     public boolean areaIsCloseable(UArea area) {
-        if (System.nanoTime() - area.closeRequestedTime > (1000*300))
+        if (System.nanoTime() - area.closeRequestedTime > (1000 * 300))
             return true;
         return false;
     }
+
     public synchronized boolean areaIsActive(String label) {
         for (UArea area : activeAreas)
             if (area.label != null)
@@ -443,12 +452,14 @@ public class UCartographer implements Runnable {
                     return true;
         return false;
     }
+
     public synchronized UArea activeAreaNamed(String label) {
         for (UArea area : activeAreas)
             if (area.label.equals(label))
                 return area;
         return null;
     }
+
     public synchronized void addAreaToLoadQueue(String label) {
         if (label.equals(loadingArea)) {
             return;
@@ -456,6 +467,7 @@ public class UCartographer implements Runnable {
         if (!loadQueue.contains(label))
             loadQueue.add(label);
     }
+
     public synchronized void addAreaToSaveQueue(UArea area) {
         if (area == savingArea) {
             return;
@@ -463,9 +475,9 @@ public class UCartographer implements Runnable {
         if (!saveQueue.contains(area))
             saveQueue.add(area);
     }
+
     /**
      * This runs in a background thread and services the area load/save queues.
-     *
      */
     public void run() {
         log.debug("background thread starting");
@@ -516,7 +528,7 @@ public class UCartographer implements Runnable {
             UArea playerArea = null;
             if (commander.player() != null)
                 playerArea = commander.player().area();
-            for (int i=0;i<activeAreas.size();i++) {
+            for (int i = 0; i < activeAreas.size(); i++) {
                 UArea area = getActiveAreaAt(i);
                 if (area == null)
                     log.error("NULL AREA IN ACTIVEAREAS");
@@ -554,8 +566,7 @@ public class UCartographer implements Runnable {
             UVaultSet vaultSet = objectMapper.readValue(resourceManager.getResourceAsStream(resource), UVaultSet.class);
             vaultSet.setObjectMapper(objectMapper);
             return vaultSet;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             return null;
         }

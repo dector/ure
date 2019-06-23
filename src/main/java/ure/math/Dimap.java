@@ -2,7 +2,7 @@ package ure.math;
 
 import com.google.common.eventbus.EventBus;
 import ure.areas.UArea;
-import ure.sys.Injector;
+import ure.kotlin.sys.Injector;
 import ure.sys.UCommander;
 import ure.terrain.UTerrain;
 

@@ -1,15 +1,14 @@
 package ure.ui;
 
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.render.URenderer;
-import ure.sys.Injector;
 import ure.sys.UConfig;
 
 import javax.inject.Inject;
-import java.io.*;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
 

@@ -1,8 +1,8 @@
 package ure.actors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ure.kotlin.sys.Injector;
 import ure.math.URandom;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 
 import javax.inject.Inject;

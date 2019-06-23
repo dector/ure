@@ -3,7 +3,7 @@ package ure.ui.Icons;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import ure.sys.Injector;
+import ure.kotlin.sys.Injector;
 import ure.sys.ResourceManager;
 import ure.sys.UCommander;
 

@@ -2,14 +2,13 @@ package ure.ui;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import ure.areas.UArea;
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.math.UPath;
 import ure.math.URandom;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 
 import javax.inject.Inject;
-import java.lang.Math;
 
 /**
  * ULight represents a light source placed in an area cell.

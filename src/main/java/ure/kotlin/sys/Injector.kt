@@ -1,4 +1,4 @@
-package ure.sys
+package ure.kotlin.sys
 
 import ure.kotlin.sys.dagger.AppComponent
 import ure.kotlin.sys.dagger.DaggerAppComponent

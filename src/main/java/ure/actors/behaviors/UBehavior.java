@@ -1,20 +1,19 @@
 package ure.actors.behaviors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import ure.actors.actions.ActionWalk;
-import ure.actors.actions.UAction;
 import ure.actors.UActor;
 import ure.actors.UNPC;
+import ure.actors.actions.ActionWalk;
+import ure.actors.actions.UAction;
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.math.UPath;
 import ure.math.URandom;
 import ure.sys.Entity;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 import ure.things.UThing;
 
 import javax.inject.Inject;
-import java.util.Random;
 
 /**
  * UBehavior implements a source of actions for an NPC actor to perform, to emulate a behavior or achieve

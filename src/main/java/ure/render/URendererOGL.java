@@ -6,11 +6,13 @@ import org.apache.commons.logging.LogFactory;
 import org.joml.Matrix4f;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.*;
-import org.lwjgl.opengl.*;
+import org.lwjgl.opengl.GL;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GLUtil;
 import org.lwjgl.stb.STBTTAlignedQuad;
+import ure.kotlin.sys.Injector;
 import ure.math.UColor;
 import ure.sys.GLKey;
-import ure.sys.Injector;
 import ure.sys.UCommander;
 import ure.sys.UConfig;
 import ure.sys.events.ResolutionChangedEvent;
@@ -22,7 +24,7 @@ import java.nio.FloatBuffer;
 
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryUtil.NULL;
 
 public class URendererOGL implements URenderer {
 

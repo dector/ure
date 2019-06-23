@@ -1,15 +1,15 @@
 package ure.areas;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import ure.actors.UActor;
 import ure.actors.UPlayer;
-import ure.sys.Injector;
-import ure.sys.UCommander;
 import ure.actors.actions.UAction;
+import ure.kotlin.sys.Injector;
+import ure.sys.UCommander;
 import ure.terrain.Stairs;
+import ure.terrain.UTerrain;
 import ure.things.UCollection;
 import ure.things.UContainer;
-import ure.actors.UActor;
-import ure.terrain.UTerrain;
 import ure.things.UThing;
 import ure.ui.Icons.Icon;
 import ure.ui.particles.UParticle;
